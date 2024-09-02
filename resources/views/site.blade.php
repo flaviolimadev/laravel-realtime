@@ -121,8 +121,7 @@
                             </thead>
 
                             <tbody id="render-ativos">
-                                
-                              
+                                @include('_broadsUpdates.ativosSite')
                             </tbody>
                         </table>
                     </div>

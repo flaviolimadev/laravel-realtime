@@ -17,6 +17,7 @@
 
 @section('main')
 <div class="area-form-login register">
+
     <div class="area-logo">
         <a href="{{ route('site.index') }}" class="logo">
             <img src="{{ asset('img/h azul.png') }}" alt="Logo">
@@ -46,56 +47,9 @@
         </div>
     </div>
 
-    <form action="#" method="post">
-        @csrf
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+    @livewire('register-user')
 
-        @if (isset($_GET['error']))
-            <div class="alert alert-danger">
-                <ul>
-                    <li>Email ou Senha não correspondem!</li>
-                </ul>
-            </div>
-        @endif
-        <div class="area-select-country">
-            <select class="form-select" name="#" id="#">
-                <option value="Brasil" selected="">Brasil</option>
-            </select>
-
-            <span>Certifique-se de que este é seu país de residência permanente.</span>
-        </div>
-
-        <input class="inputDefault" type="email" name="email" placeholder="E-mail" value="{{ old('email') }}">
-
-        <input class="inputDefault" type="text" name="user" placeholder="Usuário" value="{{ old('user') }}">
-        
-        <input class="inputDefault" type="password" name="password" placeholder="Senha" value="{{ old('password') }}">
-
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="checkTermos">
-            
-            <label class="form-check-label" for="checkTermos">
-                Confirmo que tenho 18 anos ou mais e aceito os 
-                <a target="_blank" href="#" class="link">Termos e Condições</a>
-                , a 
-                <a target="_blank" href="#" class="link">Política de Privacidade</a> 
-                e a 
-                <a target="_blank" href="#" class="link">Política de Execução de Ordens.</a>
-            </label>
-        </div>
-
-        <button type="submit" class="btnConfirmDef">
-            Continuar com o e-mail
-        </button>
-    </form>
+    @livewireScripts
 
     <div class="footer-login">
         <p class="messageRegister">

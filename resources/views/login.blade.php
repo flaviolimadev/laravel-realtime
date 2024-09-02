@@ -25,33 +25,8 @@
         Acessar sua conta
     </h1>
 
-    <form action="#" method="post">
-        @csrf
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
-        @if (isset($_GET['error']))
-            <div class="alert alert-danger">
-                <ul>
-                    <li>Email ou Senha não correspondem!</li>
-                </ul>
-            </div>
-        @endif
-        <input class="inputDefault" type="text" name="login" placeholder="Usuário ou e-mail" value="{{ old('login') }}">
-        
-        <input class="inputDefault" type="password" name="password" placeholder="Senha" value="{{ old('password') }}">
-
-        <button type="submit" class="btnConfirmDef">
-            Entrar
-        </button>
-    </form>
+    @livewire('test-component')
+    @livewireScripts
 
     <div class="login-social">
         <div class="separator-social">
