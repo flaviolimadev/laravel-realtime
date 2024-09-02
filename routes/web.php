@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 | Não precisa estar autenticado;
 */
 Route::get('/',[SiteController::class, 'index'])->name('site.index');
+Route::get('/get-ativos',[SiteController::class, 'ativos'])->name('site.ativos');
 
 #--------------------------------------------------------------------
 

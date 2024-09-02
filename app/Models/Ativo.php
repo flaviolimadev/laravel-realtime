@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Ativo extends Model
 {
     use HasFactory;
+
+    public function timeframesFirst()
+    {
+        return $this->hasMany(Timeframe::class, 'ativo', 'name')->orderBy('id', 'desc')->take(3);
+    }
 }

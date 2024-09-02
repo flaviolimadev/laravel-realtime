@@ -62,7 +62,7 @@ header {
 }
 
 main {
-    background-color: #fff;
+    background-color: #060642;
     padding-top: 63px;
 }
 
@@ -661,7 +661,7 @@ p.message-footer-home {
 
 .body-tabcontent td.chart span.text-danger,
 .body-tabcontent td.chart i.fa-arrow-trend-down {
-    color: rgb(40, 227, 77) !important;
+    color: rgb(227, 40, 40) !important;
 }
 
 .body-tabcontent td.chart i {

@@ -14,6 +14,12 @@
 
     <link href="{{ asset('auth/css/style.css') }}" rel="stylesheet">
 </head>
+<style>
+    main {
+        background-color: #ffffff;
+        padding-top: 63px;
+    }
+</style>
 <body>
     <header>
         @yield('header')
