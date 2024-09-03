@@ -3,11 +3,22 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OpController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UpdatesBroadsController;
 use App\Http\Middleware\CustomAuthenticate;
 use Illuminate\Support\Facades\Route;
 
 #Route::get('/', [UserController::class, 'index']);
 #Route::get('/teste/{id}', [UserController::class, 'updateUserName']);
+/*
+| -------------------------------------------------------------------
+| Rotas de cron para o Real-Time;
+| Não precisa estar autenticado;
+| Pusher da aplicação;
+*/
+#Roda os ativos e os preços no site inicial;
+Route::get('/get-ativos',[UpdatesBroadsController::class, 'ativos'])->name('site.ativos');
+#--------------------------------------------------------------------
+
 
 
 /*
@@ -16,8 +27,6 @@ use Illuminate\Support\Facades\Route;
 | Não precisa estar autenticado;
 */
 Route::get('/',[SiteController::class, 'index'])->name('site.index');
-Route::get('/get-ativos',[SiteController::class, 'ativos'])->name('site.ativos');
-
 #--------------------------------------------------------------------
 
 /*
@@ -26,7 +35,7 @@ Route::get('/get-ativos',[SiteController::class, 'ativos'])->name('site.ativos')
 | Não precisa estar autenticado;
 | Login; Registro; Recover; Logout
 */
-//Route::get('/loogin', function(){ return redirect()->route('auth.login'); })->name('login');
+Route::get('/loogin', function(){ return redirect()->route('auth.login'); })->name('login');
 
 Route::get('/auth/login',[AuthController::class, 'login'])->name('auth.login');
 Route::get('/auth/register',[AuthController::class, 'register'])->name('auth.register');

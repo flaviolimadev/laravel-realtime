@@ -9,20 +9,19 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
 
-class AtivosUpdate implements ShouldBroadcast
+class AtualizarSessaoAtivos implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $ativos;
+    public $session;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($ativos)
+    public function __construct($session)
     {
         //
-        $this->ativos = $ativos;
+        $this->session = $session;
     }
 
     /**
@@ -32,21 +31,20 @@ class AtivosUpdate implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        //return new PrivateChannel('cApp.Models.User.'auth()->user()->id);
-        return new Channel('ativos');
+        return new PrivateChannel('App.Models.User'.auth()->user()->id);
+        //return new Channel('ativos');
     }
 
     public function broadcastAs()
     {
-        return 'AtivosUpdate';
+        return 'AtualizarSessaoAtivos';
     }
 
     public function broadcastWith()
     {
         return [
-            'ativos' => $this->ativos, 
-            'ativosRender' => view('_broadsUpdates.ativosSite', ['ativos' => $this->ativos])->render(),
-            'ativosRenderMenu' => view('livewire.active-dropdown', ['ativos' => $this->ativos])->render(),
+            'Testando' => 123,
         ];
     }
+
 }

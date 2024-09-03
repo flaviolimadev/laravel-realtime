@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="https://code.highcharts.com/css/annotations/popup.css">
     
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    @vite('resources/js/app.js')
     
     <style>
         #container {
@@ -306,53 +308,9 @@
 
         <div class="header-right">
             <div class="dropdown-center exchange">
-                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    @if($auth->account == 0)
-                    <span class="title-drop">
-                        Conta Demo
-                    </span>
 
-                    <i class="fa-solid fa-money-bill-1-wave"></i>
-                    R$ {{ number_format($auth->balancefake/100, 2) }}
+                @livewire('account-dropdown')
 
-                    @else
-
-                    <span class="title-drop">
-                        Conta Real
-                    </span>
-
-                    <i class="fa-solid fa-money-bill-1-wave"></i>
-                    R$ {{ number_format($auth->balance/100, 2) }}
-
-                    @endif
-                </button>
-
-                <ul class="dropdown-menu">
-                    <li>
-                        <a class="dropdown-item {{ $auth->account == 0 ? 'active' : '' }}" href="">
-                            <span>
-                                <i class="fa-solid fa-money-bill-1-wave"></i>
-                                Conta Demo
-                            </span>
-                            <span class="value">
-                                R$ {{ number_format($auth->balancefake/100, 2) }}
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item {{ $auth->account == 1 ? 'active' : '' }}" href="">
-                            <span>
-                                <i class="fa-solid fa-money-bill-1-wave"></i>
-                                Conta Real
-                            </span>
-                            <span class="value">
-                                R$ {{ number_format($auth->balance/100, 2) }}
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                </ul>
             </div>
 
             <div class="dropdown depositar">
@@ -562,25 +520,25 @@
                             <li>
                                 <a href="#">
                                     <i class="fa-solid fa-circle-dollar-to-slot"></i>
-                                    Depositar 🔒
+                                    Depositar
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="fa-solid fa-hand-holding-dollar"></i>
-                                    Sacar 🔒
+                                    Sacar
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="fa-solid fa-bell"></i>
-                                    Notificações 🔒
+                                    Notificações
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="fa-solid fa-headset"></i>
-                                    Suporte 🔒
+                                    Suporte
                                 </a>
                             </li>
                             
@@ -645,7 +603,7 @@
     <div class="area-aside-main">
         <aside class="aside-main">
             <nav class="nav-aside">
-                <a href="#" class="item-nav-aside {{ url()->current() == route('auth.login') ? 'active' : '' }}">
+                <a href="#" class="item-nav-aside {{ url()->current() == route('dash.op') ? 'active' : '' }}">
                     <i class="fa-solid fa-chart-area"></i>
                     <span>Trade</span>
                 </a>
@@ -654,6 +612,26 @@
                 <a href="#" class="item-nav-aside {{ url()->current() == route('auth.login') ? 'active' : '' }}">
                     <i class="fa-solid fa-user"></i>
                     <span>Conta</span>
+                </a>
+
+                <a href="#" class="item-nav-aside {{ url()->current() == route('auth.login') ? 'active' : '' }}">
+                    <i class="fa-solid fa-robot"></i>
+                    <span>Bot IA</span>
+                </a>
+
+                <a href="#" class="item-nav-aside {{ url()->current() == route('auth.login') ? 'active' : '' }}">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Invite</span>
+                </a>
+
+                <a href="#" class="item-nav-aside {{ url()->current() == route('auth.login') ? 'active' : '' }}">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    <span>Extrato</span>
+                </a>
+
+                <a href="#" class="item-nav-aside {{ url()->current() == route('auth.login') ? 'active' : '' }}">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Noticias</span>
                 </a>
 
                 <!--
@@ -750,6 +728,8 @@
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel"></div>
 
     <div class="collapse" id="collapseOperacoes"></div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     

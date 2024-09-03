@@ -17,11 +17,4 @@ class SiteController extends Controller
             'ativos' => $ativos 
         ]);
     }
-
-    public function ativos(){
-
-        $ativos = Ativo::all();
-
-        broadcast(new AtivosUpdate($ativos));
-    }
 }

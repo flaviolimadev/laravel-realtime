@@ -18,69 +18,9 @@
                             </button>
     
                             <input type="text" placeholder="Procurar">
-    
-                            <div class="btns-filter">
-                                <button type="button" class="active">Moedas</button>
-    
-                                <button type="button">Cripto</button>
-    
-                                <button type="button">Matérias-primas</button>
-    
-                                <button type="button">Ações</button>
-                            </div>
                         </div>
     
-                        <div class="table-responsive">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <a href="#">Ativos</a>
-                                        </th>
-                                        <th>
-                                            <a href="#">Mudanças (24hrs)</a>
-                                        </th>
-                                        <th>
-                                            <a href="#">Rev. de 1 min</a>
-                                        </th>
-                                        <th>
-                                            <a href="#">A partir de 5 min</a>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-    
-                                    @foreach([] as $att)
-                                    <tr>
-                                        <td>
-                                            <a href="{{ route('index', ['ativo' => $att->ativo]) }}">
-                                                <i class="fa-solid fa-coins"></i>
-                                                <span>{{ $att->ativo }}</span>
-                                            </a>
-                                        </td>
-    
-                                        <td class="up">
-                                            <i class="fa-solid fa-arrow-up"></i>
-                                            0%
-                                        </td>
-    
-                                        <td>{{ $att->payoutCompra }}%</td>
-    
-                                        <td>
-                                            {{ $att->payoutVenda }}%
-                                            <a href="#">
-                                                <i class="fa-regular fa-star" style="display: none;"></i>
-                                                <i class="fa-solid fa-star" style="display: inline-block;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-    
-                                
-                                </tbody>    
-                               
-                            </table>
-                        </div>
+                        @livewire('active-dropdown')
                     </div>   
                 </div>
     

@@ -11,6 +11,6 @@ class Ativo extends Model
 
     public function timeframesFirst()
     {
-        return $this->hasMany(Timeframe::class, 'ativo', 'name')->orderBy('id', 'desc')->take(3);
+        return $this->hasMany(Timeframe::class, 'ativo', 'name')->orderBy('id', 'desc')->take(1);
     }
 }
